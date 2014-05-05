@@ -2,7 +2,7 @@
 
 run the script:
 ```
-curl -L https://raw.github.com/froggr/dots/master/setup.sh | sh
+bash -c "$(curl -fsSL https://raw.github.com/froggr/dots/master/setup.sh)"
 ```
 
-thats it... :)
+thats it... for now :)
