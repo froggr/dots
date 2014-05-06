@@ -4,7 +4,8 @@ stage1 () {
 echo "Stage 1: install git, vim and zsh."
 read -p "Start? (y/n) > " choice
 case "$choice" in 
-  y|Y ) sudo apt-get install git vim zsh
+  y|Y ) sudo apt-get update
+  	sudo apt-get install git vim zsh
 	echo "done";;
   n|N ) echo "Ok...";;
   * ) echo "invalid entry!"
