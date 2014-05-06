@@ -56,7 +56,8 @@ echo "Stage 4: Install oh-my-zsh? (you also may need your ssh-key in github frog
 read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) curl -L http://install.ohmyz.sh | sh
-	echo "Done the install. You may need to customize your theme"
+	sed -i 's/ZSH_THEME="robbyrussel"/ZSH_THEME="bira"/g' ~/.zshrc
+	echo "Done the install. If the theme wasn't changed to bira, vim the .zshrc file and change er'"
 	;;
   n|N ) echo "Ok..."
 	;;
