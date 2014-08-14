@@ -1,6 +1,19 @@
 echo "Here we go!"
 
 
+echo "Do that? [Y,n]"
+read input
+if [[ $input == "Y" || $input == "y" ]]; then
+        mac()
+else
+        stage1()
+fi
+exit;
+
+
+
+
+
 mac () {
 echo "Welcome: Are you on a mac?"
 read -p "Start? (y/n) > " choice
@@ -97,13 +110,4 @@ case "$choice" in
 esac
 }
 
-cd ~/
-mac
-stage1
-stage2
-stage3
-stage4
-stage5
-
-echo "all done! later!"
 
