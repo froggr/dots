@@ -2,13 +2,13 @@ echo "Here we go!"
 
 
 
-
+# this is the initial function
 start () {
 echo "Welcome: What OS are you using??"
 read -p "Mac (m/M) or Linux (l/L) > " choice
 case "$choice" in 
   m|M ) echo "Wooo! Mac!"
-	stage1;;
+	mac1;;
   l|L ) echo "Linux... Nice!"
   	stage5;;
   * ) echo "invalid entry!"
@@ -16,7 +16,12 @@ case "$choice" in
 esac
 }
 
-stage1 () {
+
+
+# ------- Linux Start ------- #
+
+
+Linux1 () {
 echo "Stage 1: install git, vim and zsh."
 read -p "Start? (y/n) > " choice
 case "$choice" in 
@@ -29,7 +34,7 @@ case "$choice" in
 esac
 }
 
-stage2 () {
+Linux2 () {
 echo "Stage 2: Generate ssh key?"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
@@ -46,7 +51,7 @@ case "$choice" in
 esac
 }
 
-stage3 () {
+Linux3 () {
 echo "Stage 3: Install vim plugins and fonts? (you need your ssh-key in github froggr...)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
@@ -68,7 +73,7 @@ case "$choice" in
 esac
 }
 
-stage4 () {
+Linux4 () {
 echo "Stage 4: Install oh-my-zsh? (you also may need your ssh-key in github froggr...)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
@@ -84,7 +89,32 @@ case "$choice" in
 esac
 }
 
-stage5 () {
+# -------- Linux End --------- #
+
+
+# -------- Mac Start --------- #
+
+Mac1 () {
+echo "Mac -> Stage 1: Install Brew (you need your ssh-key in github froggr...)"
+read -p "Start? (y/n) > " choice
+case "$choice" in 
+  y|Y ) ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+	
+	echo "Done the install."
+	exit;;
+  n|N ) echo "Ok..."
+	;;
+  * ) echo "invalid entry!"
+        stage4
+	;;
+esac
+}
+
+# -------- Mac End --------- #
+
+
+
+final () {
 echo "Stage 5: Final misc. setup (projects dir, etc...)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
