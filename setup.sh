@@ -1,5 +1,19 @@
 echo "Here we go!"
 
+
+mac () {
+echo "Welcome: Are you on a mac?"
+read -p "Start? (y/n) > " choice
+case "$choice" in 
+  y|Y ) echo "Cool. Exiting!"
+	exit;;
+  n|N ) echo "Ok..."
+  	stage1;;
+  * ) echo "invalid entry!"
+        mac;;
+esac
+}
+
 stage1 () {
 echo "Stage 1: install git, vim and zsh."
 read -p "Start? (y/n) > " choice
@@ -84,6 +98,7 @@ esac
 }
 
 cd ~/
+mac
 stage1
 stage2
 stage3
