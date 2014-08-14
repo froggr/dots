@@ -1,29 +1,20 @@
 echo "Here we go!"
 
+start
 
-echo "Do that? [Y,n]"
-read input
-if [[ $input == "Y" || $input == "y" ]]; then
-        mac()
-else
-        stage1()
-fi
 exit;
 
 
-
-
-
-mac () {
+start () {
 echo "Welcome: Are you on a mac?"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
-  y|Y ) echo "Cool. Exiting!"
-	exit;;
-  n|N ) echo "Ok..."
-  	stage1;;
+  m|M ) echo "Wooo! Mac!"
+	stage1;;
+  l|L ) echo "Linux... Nice!"
+  	stage5;;
   * ) echo "invalid entry!"
-        mac;;
+        start;;
 esac
 }
 
