@@ -101,11 +101,35 @@ case "$choice" in
   y|Y ) ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 	
 	echo "Done the install."
-	exit;;
+	Mac2;;
+  n|N ) echo "Ok..."
+	Mac2;;
+  * ) echo "invalid entry!"
+        Mac1
+	;;
+esac
+}
+
+
+Mac2 () {
+echo "Mac -> Stage 2: Install MacVim plugins and fonts? (you need your ssh-key in github froggr...)"
+read -p "Start? (y/n) > " choice
+case "$choice" in 
+  y|Y ) brew install macvim --override-system-vim
+  	git clone git://github.com/froggr/vim.git ~/.vim
+	ln -s ~/.vim/vimrc ~/.vimrc
+	cd ~/.vim
+	git submodule init
+	git submodule update
+	cd ~/
+	git clone https://github.com/scotu/ubuntu-mono-powerline.git ~/.fonts
+	fc-cache
+	echo "Done. Vim should be good to go"
+	;;
   n|N ) echo "Ok..."
 	;;
   * ) echo "invalid entry!"
-        stage4
+        stage3
 	;;
 esac
 }
