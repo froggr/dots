@@ -4,8 +4,8 @@ echo "Here we go!"
 
 
 start () {
-echo "Welcome: Are you on a mac?"
-read -p "Start? (y/n) > " choice
+echo "Welcome: What OS are you using??"
+read -p "Mac (m/M) or Linux (l/L) > " choice
 case "$choice" in 
   m|M ) echo "Wooo! Mac!"
 	stage1;;
