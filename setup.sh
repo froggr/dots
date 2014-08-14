@@ -107,7 +107,7 @@ case "$choice" in
 	git submodule update
 	cd ~/
 	git clone git@github.com:Lokaltog/powerline-fonts.git ~/powerline-fonts
-	echo "Done. MacVim should be good to go. You will need to add the power line fonts tho. They are cloned into ~/powerline-fonts. Sorry :S”
+	echo "Done. MacVim should be good to go. You will need to add the power line fonts tho. They are cloned into powerlinefonts. Sorry :S"
 	Final1;;
   n|N ) echo "Ok..."
 	Final1;;
