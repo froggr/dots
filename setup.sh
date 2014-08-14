@@ -8,7 +8,7 @@ echo "Welcome: What OS are you using??"
 read -p "Mac (m/M) or Linux (l/L) > " choice
 case "$choice" in 
   m|M ) echo "Wooo! Mac!"
-	mac1;;
+	Mac1;;
   l|L ) echo "Linux... Nice!"
   	stage5;;
   * ) echo "invalid entry!"
