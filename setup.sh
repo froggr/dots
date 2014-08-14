@@ -1,8 +1,6 @@
 echo "Here we go!"
 
-start
 
-exit;
 
 
 start () {
@@ -102,3 +100,6 @@ esac
 }
 
 
+start
+
+exit;
