@@ -125,8 +125,8 @@ echo "Stage 4: Install oh-my-zsh?"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) curl -L http://install.ohmyz.sh | sh
-	sed -i 's/ZSH_THEME=\”robbyrussel\”/ZSH_THEME=\”bira\”/g’ ~/.zshrc
-	echo "Done the install. If the theme wasn't changed to bira, vim the .zshrc file and change er'"
+	sed -i 's/ZSH_THEME=\"robbyrussel\"/ZSH_THEME=\"bira\"/g' ~/.zshrc
+	echo "Done the install. If the theme wasnt changed to bira, vim the .zshrc file and change er"
 	final2;;
   n|N ) echo "Ok..."
 	final2;;
@@ -139,7 +139,7 @@ esac
 
 
 final2 () {
-echo "Stage 5: Final misc. setup (projects dir, etc…)”
+echo "Stage 5: Final misc. setup (projects dir, etc…)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) mkdir ~/projects
