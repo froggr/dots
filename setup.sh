@@ -18,7 +18,7 @@ esac
 
 
 
-# ------- Linux Start ------- #
+# ------- Linux Start -------
 
 
 Linux1 () {
@@ -73,33 +73,17 @@ case "$choice" in
 esac
 }
 
-Linux4 () {
-echo "Stage 4: Install oh-my-zsh? (you also may need your ssh-key in github froggr...)"
-read -p "Start? (y/n) > " choice
-case "$choice" in 
-  y|Y ) curl -L http://install.ohmyz.sh | sh
-	sed -i 's/ZSH_THEME="robbyrussel"/ZSH_THEME="bira"/g' ~/.zshrc
-	echo "Done the install. If the theme wasn't changed to bira, vim the .zshrc file and change er'"
-	;;
-  n|N ) echo "Ok..."
-	;;
-  * ) echo "invalid entry!"
-        stage4
-	;;
-esac
-}
 
-# -------- Linux End --------- #
+# -------- Linux End ---------
 
 
-# -------- Mac Start --------- #
+# -------- Mac Start ---------
 
 Mac1 () {
 echo "Mac -> Stage 1: Install Brew (you need your ssh-key in github froggr...)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-	
 	echo "Done the install."
 	Mac2;;
   n|N ) echo "Ok..."
@@ -122,24 +106,40 @@ case "$choice" in
 	git submodule init
 	git submodule update
 	cd ~/
-	git clone https://github.com/scotu/ubuntu-mono-powerline.git ~/.fonts
-	fc-cache
-	echo "Done. Vim should be good to go"
-	;;
+	git clone git@github.com:Lokaltog/powerline-fonts.git ~/powerline-fonts
+	echo "Done. MacVim should be good to go. You will need to add the power line fonts tho. They are cloned into ~/powerline-fonts. Sorry :S”
+	Final1;;
   n|N ) echo "Ok..."
-	;;
+	Final1;;
   * ) echo "invalid entry!"
-        stage3
+        Mac2
 	;;
 esac
 }
 
-# -------- Mac End --------- #
+# -------- Mac End ---------
+
+
+final1 () {
+echo "Stage 4: Install oh-my-zsh?"
+read -p "Start? (y/n) > " choice
+case "$choice" in 
+  y|Y ) curl -L http://install.ohmyz.sh | sh
+	sed -i 's/ZSH_THEME=\”robbyrussel\”/ZSH_THEME=\”bira\”/g’ ~/.zshrc
+	echo "Done the install. If the theme wasn't changed to bira, vim the .zshrc file and change er'"
+	final2;;
+  n|N ) echo "Ok..."
+	final2;;
+  * ) echo "invalid entry!"
+        final1
+	;;
+esac
+}
 
 
 
-final () {
-echo "Stage 5: Final misc. setup (projects dir, etc...)"
+final2 () {
+echo "Stage 5: Final misc. setup (projects dir, etc…)”
 read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) mkdir ~/projects
@@ -148,12 +148,15 @@ case "$choice" in
   n|N ) echo "Ok..."
 	;;
   * ) echo "invalid entry!"
-        stage5
+        final2
 	;;
 esac
 }
 
 
+
 start
+
+echo “Ok! Installation is complete! Cheers”
 
 exit;
