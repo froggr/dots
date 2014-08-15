@@ -10,7 +10,7 @@ case "$choice" in
   m|M ) echo "Wooo! Mac!"
 	Mac1;;
   l|L ) echo "Linux... Nice!"
-  	stage5;;
+  	Linux1;;
   * ) echo "invalid entry!"
         start;;
 esac
@@ -26,11 +26,13 @@ echo "Stage 1: install git, vim and zsh."
 read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) sudo apt-get update
-  	sudo apt-get install git vim zsh
-	echo "done";;
-  n|N ) echo "Ok...";;
+  		sudo apt-get install git vim zsh
+		echo "done"
+		Linux2;;
+  n|N ) echo "Ok..."
+		Linux2;;
   * ) echo "invalid entry!"
-        stage1;;
+      Linux1;;
 esac
 }
 
@@ -42,11 +44,11 @@ case "$choice" in
 	ssh-add ~/.ssh/id_rsa
 	cat ~/.ssh/id_rsa
 	echo "Now would be a good time to copy that to bitbucket or github..."
-	;;
+	Linux3;;
   n|N ) echo "Ok..."
-	;;
+	Linux3;;
   * ) echo "invalid entry!"
-        stage2
+        Linux2
 	;;
 esac
 }
@@ -64,11 +66,11 @@ case "$choice" in
 	git clone https://github.com/scotu/ubuntu-mono-powerline.git ~/.fonts
 	fc-cache
 	echo "Done. Vim should be good to go"
-	;;
+	final1;;
   n|N ) echo "Ok..."
-	;;
+	final1;;
   * ) echo "invalid entry!"
-        stage3
+        Linux3
 	;;
 esac
 }
