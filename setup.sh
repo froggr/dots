@@ -105,9 +105,9 @@ case "$choice" in
 	cd ~/.vim
 	git submodule init
 	git submodule update
+	open Inconsolata-dz-Powerline.otf
 	cd ~/
-	git clone git@github.com:Lokaltog/powerline-fonts.git ~/powerline-fonts
-	echo "Done. MacVim should be good to go. You will need to add the power line fonts tho. They are cloned into powerlinefonts. Sorry :S"
+	echo "Done. MacVim should be good to go. You will need to install the powerline font that just opened."
 	final1;;
   n|N ) echo "Ok..."
 	final1;;
@@ -125,7 +125,8 @@ echo "Stage 4: Install oh-my-zsh?"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) curl -L http://install.ohmyz.sh | sh
-	sed -i 's/ZSH_THEME=\"robbyrussel\"/ZSH_THEME=\"bira\"/g' ~/.zshrc
+	sed -i.bu 's/robbyrussell/bira/g' ~/.zshrc
+	echo "alias ll=\"ls -la\"" >> ~/.zshrc
 	echo "Done the install. If the theme wasnt changed to bira, vim the .zshrc file and change er"
 	final2;;
   n|N ) echo "Ok..."
@@ -136,9 +137,25 @@ case "$choice" in
 esac
 }
 
-
-
 final2 () {
+echo "Do you want to alias vim for mvim? Only if youre using a mac!!"
+read -p "Start? (y/n) > " choice
+case "$choice" in 
+  y|Y ) 	echo "alias vim=\"mvim\" >> ~/.zshrc"
+	echo "Done!"
+	final3;;
+  n|N ) echo "Ok..."
+	  final3;;
+  * ) echo "invalid entry!"
+        final2
+	;;
+esac
+}
+
+
+
+
+final3 () {
 echo "Stage 5: Final misc. setup (projects dir, etc…)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
@@ -148,7 +165,7 @@ case "$choice" in
   n|N ) echo "Ok..."
 	;;
   * ) echo "invalid entry!"
-        final2
+        final3
 	;;
 esac
 }
@@ -157,6 +174,6 @@ esac
 
 start
 
-echo “Ok! Installation is complete! Cheers”
+echo "Ok! Installation is complete! Cheers"
 
 exit;
