@@ -119,6 +119,27 @@ case "$choice" in
 esac
 }
 
+Mac2 () {
+echo "Mac -> Stage 3: Install MacVim plugins and fonts? (you need your ssh-key in github froggr...)"
+read -p "Start? (y/n) > " choice
+case "$choice" in 
+  y|Y ) brew install macvim --override-system-vim
+  	git clone git://github.com/froggr/vim.git ~/.vim
+	ln -s ~/.vim/vimrc ~/.vimrc
+	cd ~/.vim
+	git submodule init
+	git submodule update
+	open Inconsolata-dz-Powerline.otf
+	cd ~/
+	echo "Done. MacVim should be good to go. You will need to install the powerline font that just opened."
+	final1;;
+  n|N ) echo "Ok..."
+	final1;;
+  * ) echo "invalid entry!"
+        Mac2
+	;;
+esac
+}
 # -------- Mac End ---------
 
 
@@ -127,7 +148,8 @@ echo "Stage 4: Install oh-my-zsh?"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) curl -L http://install.ohmyz.sh | sh
-	sed -i.bu 's/robbyrussell/bira/g' ~/.zshrc
+	curl -o ~/.oh-my-zsh/themes/frog.zsh-theme 'https://cdn.rawgit.com/froggr/dots/master/files/frog.zsh-theme'
+	sed -i.bu 's/robbyrussell/frog/g' ~/.zshrc
 	echo "alias ll=\"ls -la\"" >> ~/.zshrc
 	echo "Done the install. If the theme wasnt changed to bira, vim the .zshrc file and change er"
 	final2;;
