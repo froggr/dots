@@ -104,6 +104,7 @@ case "$choice" in
   y|Y ) brew install macvim --override-system-vim
   	git clone git://github.com/froggr/vim.git ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc
+	ln -s ~/.vim/gvimrc ~/.gvimrc
 	cd ~/.vim
 	git submodule init
 	git submodule update
