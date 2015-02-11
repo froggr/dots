@@ -42,7 +42,7 @@ read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) ssh-keygen
 	ssh-add ~/.ssh/id_rsa
-	cat ~/.ssh/id_rsa
+	cat ~/.ssh/id_rsa.pub
 	echo "Now would be a good time to copy that to bitbucket or github..."
 	Linux3;;
   n|N ) echo "Ok..."
