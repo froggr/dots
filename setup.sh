@@ -8,7 +8,7 @@ echo "Welcome: What OS are you using??"
 read -p "Mac (m/M) or Linux (l/L) > " choice
 case "$choice" in 
   m|M ) echo "Wooo! Mac!"
-	Mac1;;
+	Mac0;;
   l|L ) echo "Linux... Nice!"
   	Linux1;;
   * ) echo "invalid entry!"
@@ -81,6 +81,23 @@ esac
 
 # -------- Mac Start ---------
 
+Mac0 () {
+echo "Stage 2: Generate ssh key?"
+read -p "Start? (y/n) > " choice
+case "$choice" in 
+  y|Y ) ssh-keygen
+	ssh-add ~/.ssh/id_rsa
+	cat ~/.ssh/id_rsa.pub
+	echo "Now would be a good time to copy that to bitbucket or github..."
+	Linux3;;
+  n|N ) echo "Ok..."
+	Linux3;;
+  * ) echo "invalid entry!"
+        Linux2
+	;;
+esac
+}
+
 Mac1 () {
 echo "Mac -> Stage 1: Install Brew (you need your ssh-key in github froggr...)"
 read -p "Start? (y/n) > " choice
@@ -98,11 +115,10 @@ esac
 
 
 Mac2 () {
-echo "Mac -> Stage 2: Install MacVim plugins and fonts? (you need your ssh-key in github froggr...)"
+echo "Mac -> Stage 2: Install Vim plugins and fonts? (you need your ssh-key in github froggr...)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
-  y|Y ) brew install macvim --override-system-vim
-  	git clone git://github.com/froggr/vim.git ~/.vim
+  y|Y ) git clone git://github.com/froggr/vim.git ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc
 	ln -s ~/.vim/gvimrc ~/.gvimrc
 	cd ~/.vim
@@ -120,27 +136,24 @@ case "$choice" in
 esac
 }
 
-Mac2 () {
-echo "Mac -> Stage 3: Install MacVim plugins and fonts? (you need your ssh-key in github froggr...)"
+
+Mac3 () {
+echo "Mac -> Stage 3: Install docker and docker-compose...)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
-  y|Y ) brew install macvim --override-system-vim
-  	git clone git://github.com/froggr/vim.git ~/.vim
-	ln -s ~/.vim/vimrc ~/.vimrc
-	cd ~/.vim
-	git submodule init
-	git submodule update
-	open Inconsolata-dz-Powerline.otf
-	cd ~/
-	echo "Done. MacVim should be good to go. You will need to install the powerline font that just opened."
+  y|Y ) brew cask install docker
+  	brew cask install docker-compose
 	final1;;
   n|N ) echo "Ok..."
 	final1;;
   * ) echo "invalid entry!"
-        Mac2
+        Mac3
 	;;
 esac
 }
+
+
+
 # -------- Mac End ---------
 
 
