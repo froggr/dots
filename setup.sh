@@ -89,11 +89,11 @@ case "$choice" in
 	ssh-add ~/.ssh/id_rsa
 	cat ~/.ssh/id_rsa.pub
 	echo "Now would be a good time to copy that to bitbucket or github..."
-	Linux3;;
+	Mac1;;
   n|N ) echo "Ok..."
-	Linux3;;
+	Mac1;;
   * ) echo "invalid entry!"
-        Linux2
+        Mac0
 	;;
 esac
 }
@@ -129,7 +129,7 @@ case "$choice" in
 	echo "Done. MacVim should be good to go. You will need to install the powerline font that just opened."
 	Mac3;;
   n|N ) echo "Ok..."
-	final1;;
+	Mac3;;
   * ) echo "invalid entry!"
         Mac2
 	;;
