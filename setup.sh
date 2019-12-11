@@ -167,6 +167,7 @@ case "$choice" in
 	curl -o ~/.oh-my-zsh/themes/frog.zsh-theme 'https://cdn.rawgit.com/froggr/dots/master/files/frog.zsh-theme'
 	sed -i.bu 's/robbyrussell/frog/g' ~/.zshrc
 	echo "alias ll=\"ls -la\"" >> ~/.zshrc
+	chsh -s $(which zsh)
 	echo "Done the install. If the theme wasnt changed to bira, vim the .zshrc file and change er"
 	final2;;
   n|N ) echo "Ok..."
