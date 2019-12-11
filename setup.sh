@@ -138,11 +138,13 @@ esac
 
 
 Mac3 () {
-echo "Mac -> Stage 3: Install docker and docker-compose...)"
+echo "Mac -> Stage 3: Install docker and docker-compose, iterm, google chrome...)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) brew cask install docker
   	brew cask install docker-compose
+	brew cask install iterm
+	brew cask install google-chrome
 	final1;;
   n|N ) echo "Ok..."
 	final1;;
