@@ -102,7 +102,7 @@ Mac1 () {
 echo "Mac -> Stage 1: Install Brew (you need your ssh-key in github froggr...)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
-  y|Y ) ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  y|Y ) /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	echo "Done the install."
 	Mac2;;
   n|N ) echo "Ok..."
