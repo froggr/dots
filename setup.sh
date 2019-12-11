@@ -142,7 +142,6 @@ echo "Mac -> Stage 3: Install docker and docker-compose, iterm, google chrome, v
 read -p "Start? (y/n) > " choice
 case "$choice" in 
   y|Y ) brew cask install docker
-  	brew cask install docker-compose
 	brew cask install iterm
 	brew cask install google-chrome
 	brew cask install visual-studio-code
