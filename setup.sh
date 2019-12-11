@@ -127,7 +127,7 @@ case "$choice" in
 	open Inconsolata-dz-Powerline.otf
 	cd ~/
 	echo "Done. MacVim should be good to go. You will need to install the powerline font that just opened."
-	final1;;
+	Mac3;;
   n|N ) echo "Ok..."
 	final1;;
   * ) echo "invalid entry!"
