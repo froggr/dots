@@ -6,3 +6,5 @@ bash -c "$(curl -fsSL https://raw.github.com/froggr/dots/master/setup.sh)"
 ```
 
 thats it... for now :)
+
+weee
