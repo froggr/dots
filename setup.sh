@@ -166,8 +166,15 @@ case "$choice" in
   y|Y ) curl -L http://install.ohmyz.sh | sh
 	curl -o ~/.oh-my-zsh/themes/frog.zsh-theme 'https://cdn.rawgit.com/froggr/dots/master/files/frog.zsh-theme'
 	sed -i.bu 's/robbyrussell/frog/g' ~/.zshrc
+	sed -i.bu 's/plugins\(git\)/plugins\=\(git docker docker-compose zsh-syntax-highlighting zsh-autosuggestions\)/g' ~/.zshrc
 	echo "alias ll=\"ls -la\"" >> ~/.zshrc
 	chsh -s $(which zsh)
+	brew install fzf
+	$(brew --prefix)/opt/fzf/install
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	
+	
 	echo "Done the install. If the theme wasnt changed to bira, vim the .zshrc file and change er"
 	final2;;
   n|N ) echo "Ok..."
