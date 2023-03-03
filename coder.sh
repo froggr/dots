@@ -86,21 +86,21 @@ function ohmyzsh {
 function insertaliases {
 	echo "Here we go..."
 cat <<EOT >> ~/.zshrc
-    alias dcshell="docker compose -p tms_docker-compose --project-directory /var/www/html exec app bash"
-    alias dcmysql="docker compose -p tms_docker-compose exec app bash -c 'mysql -uroot -ppassword -h db'"
+    alias dcshell="docker compose -f ~/projects/TMS_docker-compose/docker-compose.yml --project-directory /var/www/html exec app bash"
+    alias dcmysql="docker compose -f ~/projects/TMS_docker-compose/docker-compose.yml exec app bash -c 'mysql -uroot -ppassword -h db'"
     alias php7="sudo update-alternatives --set php /usr/bin/php7.4"
     alias php8="sudo update-alternatives --set php /usr/bin/php8.2"
 
     dc() {
-        docker compose -p tms_docker-compose \$*
+        docker compose -f ~/projects/TMS_docker-compose/docker-compose.yml \$*
     }
 
     dcnpm() {
-        docker compose -p tms_docker-compose exec app bash -c "cd /var/www/html && npm \$*"
+        docker compose -f ~/projects/TMS_docker-compose/docker-compose.yml exec app bash -c "cd /var/www/html && npm \$*"
     }
 
     artisan() {
-        docker compose -p tms_docker-compose exec app bash -c "cd /var/www/html && php artisan \$*"
+        docker compose -f ~/projects/TMS_docker-compose/docker-compose.yml exec app bash -c "cd /var/www/html && php artisan \$*"
     }
 EOT
 
