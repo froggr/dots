@@ -90,10 +90,7 @@ cat <<EOT >> ~/.zshrc
     alias dcmysql="docker compose -f ~/projects/TMS_docker-compose/docker-compose.yml exec app bash -c 'mysql -uroot -ppassword -h db'"
     alias php7="sudo update-alternatives --set php /usr/bin/php7.4"
     alias php8="sudo update-alternatives --set php /usr/bin/php8.2"
-
-    dc() {
-        docker compose -f ~/projects/TMS_docker-compose/docker-compose.yml \$*
-    }
+    alias dc="docker compose -f ~/projects/TMS_docker-compose/docker-compose.yml"
 
     dcnpm() {
         docker compose -f ~/projects/TMS_docker-compose/docker-compose.yml exec app bash -c "cd /var/www/html && npm \$*"
