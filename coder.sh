@@ -112,6 +112,9 @@ function repos {
     git clone git@github.com:timelessgroup/TMS_docker-compose.git
     git clone git@github.com:Timeless-Medical-International/Version-7-Laravel.git
     git clone git@github.com:timelessgroup/Version-7.git
+    cd ~/projects/TMS_docker-compose
+    git fetch --all
+    git checkout dev7choc
     cp ~/projects/TMS_docker-compose/example_env ~/projects/TMS_docker-compose/.env
     cd ~/
 }
