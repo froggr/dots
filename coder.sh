@@ -92,15 +92,15 @@ cat <<EOT >> ~/.zshrc
     alias php8="sudo update-alternatives --set php /usr/bin/php8.2"
 
     dc() {
-        docker compose -p tms_docker-compose $*
+        docker compose -p tms_docker-compose \$*
     }
 
     dcnpm() {
-        docker compose -p tms_docker-compose exec app bash -c "cd /var/www/html && npm $*"
+        docker compose -p tms_docker-compose exec app bash -c "cd /var/www/html && npm \$*"
     }
 
     artisan() {
-        docker compose -p tms_docker-compose exec app bash -c "cd /var/www/html && php artisan $*"
+        docker compose -p tms_docker-compose exec app bash -c "cd /var/www/html && php artisan \$*"
     }
 EOT
 
