@@ -35,7 +35,8 @@ function allofem {
 function installgitvimzsh {
     clear
     sudo apt-get install git vim zsh
-	echo "done!"
+    read -r -s -p $'Press enter to continue...'
+    echo "done!"
 }
 
 function vimthemes {
