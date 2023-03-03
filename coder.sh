@@ -25,14 +25,14 @@ menuOptions=(
 )
 
 function allofem {
-	git
+	insatallgitvimzsh
 	vimthemes
 	ohmyzsh
 	insertaliases
 	repos
 }
 
-function git {
+function installgitvimzsh {
     clear
     sudo apt-get install git vim zsh
 	echo "done!"
@@ -207,7 +207,7 @@ do
         allofem ;;
         
         1)
-        git ;;
+        installgitvimzsh ;;
 
         2)
 		vimthemes ;;
