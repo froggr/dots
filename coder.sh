@@ -107,11 +107,13 @@ EOT
 }
 
 function repos {
-    mkdir ~/projects && cd ~/projects
+    mkdir ~/projects 
+    cd ~/projects
     git clone git@github.com:timelessgroup/TMS_docker-compose.git
     git clone git@github.com:Timeless-Medical-International/Version-7-Laravel.git
-    git clone https://github.com/timelessgroup/Version-7
+    git clone git@github.com:timelessgroup/Version-7.git
     cp ~/projects/TMS_docker-compose/example_env ~/projects/TMS_docker-compose/.env
+    cd ~/
 }
                                                                                                                    
 
