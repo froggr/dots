@@ -19,12 +19,18 @@ menuOptions=(
 "Install git, vim, zsh"
 "Install Vim Powerline, Plugins and Fonts"
 "Install Oh-My-Zsh"
-"Install my ZSH Theme"
 "Insert ZSH Aliases for TMS Docker Compose"
+"Init the repos!"
 "Exit"
 )
 
-
+function allofem {
+	git;;
+	vimthemes;;
+	ohmyzsh;;
+	insertaliases;;
+	repos;;
+}
 
 function git {
     clear
@@ -68,7 +74,7 @@ function ohmyzsh {
 	sed -i.bu 's/robbyrussell/frog/g' ~/.zshrc
 	sed -i.bu 's/plugins\(git\)/plugins\=\(git docker docker-compose zsh-syntax-highlighting zsh-autosuggestions\)/g' ~/.zshrc
 	echo "alias ll=\"ls -la\"" >> ~/.zshrc
-	sudo chsh -s $(which zsh)
+	sudo chsh -s $(which zsh) $USER
 	brew install fzf
 	$(brew --prefix)/opt/fzf/install
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -82,6 +88,8 @@ function insertaliases {
 cat <<EOT >> ~/.zshrc
     alias dcshell="docker compose -p tms_docker-compose --project-directory /var/www/html exec app bash"
     alias dcmysql="docker compose -p tms_docker-compose exec app bash -c 'mysql -uroot -ppassword -h db'"
+    alias php7="sudo update-alternatives --set php /usr/bin/php7.4"
+    alias php8="sudo update-alternatives --set php /usr/bin/php8.2"
 
     dc() {
         docker compose -p tms_docker-compose $*
@@ -99,10 +107,11 @@ EOT
 }
 
 function repos {
-	mkdir ~/projects && cd ~/projects
+    mkdir ~/projects && cd ~/projects
     git clone git@github.com:timelessgroup/TMS_docker-compose.git
     git clone git@github.com:Timeless-Medical-International/Version-7-Laravel.git
     git clone https://github.com/timelessgroup/Version-7
+    cp ~/projects/TMS_docker-compose/example_env ~/projects/TMS_docker-compose/.env
 }
                                                                                                                    
 
