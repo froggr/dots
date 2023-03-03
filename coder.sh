@@ -25,11 +25,11 @@ menuOptions=(
 )
 
 function allofem {
-	git;;
-	vimthemes;;
-	ohmyzsh;;
-	insertaliases;;
-	repos;;
+	git
+	vimthemes
+	ohmyzsh
+	insertaliases
+	repos
 }
 
 function git {
