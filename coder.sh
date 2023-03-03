@@ -25,7 +25,7 @@ menuOptions=(
 )
 
 function allofem {
-	insatallgitvimzsh
+	installgitvimzsh
 	vimthemes
 	ohmyzsh
 	insertaliases
