@@ -57,7 +57,7 @@ Linux3 () {
 echo "Stage 3: Install vim plugins and fonts? (you need your ssh-key in github froggr...)"
 read -p "Start? (y/n) > " choice
 case "$choice" in 
-  y|Y ) git clone git://github.com/froggr/vim.git ~/.vim
+  y|Y ) git clone git@github.com:froggr/vim.git ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc
 	cd ~/.vim
 	git submodule init
